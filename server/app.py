@@ -2,6 +2,10 @@ import os
 import requests
 import numpy as np
 import cv2
+from flask import Flask, request, jsonify
+from generator import interpolate
+from imageio import mimsave
+
 app = Flask(__name__)
 from flask_cors import CORS
 CORS(app)
@@ -34,8 +38,9 @@ def get_image(url):
     except Exception as e:
         print(f"Error fetching or processing the image: {e}")
         return None
+
 def load_image(timestamps,bbox):
-    base_url = ("https://mosdac.gov.in/live_data/wms/live3RL1BSTD1km/products/Insat3r/3R_IMG/2025/10AUG/3RIMG_10AUG2025_{timestamp}_L1B_STD_V01R00.h5?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&FORMAT=image%2Fpng&TRANSPARENT=true&LAYERS=IMG_VIS&COLORSCALERANGE=46%2C538&BELOWMINCOLOR=extend&ABOVEMAXCOLOR=extend&transparent=true&format=image%2Fpng&STYLES=boxfill%2Fgreyscale&WIDTH=256&HEIGHT=256&CRS=EPSG%3A3857&BBOX={bbox}")
+    base_url = ("https://mosdac.gov.in/live_data/wms/live3RL1BSTD1km/products/Insat3r/3R_IMG/2024/10DEC/3RIMG_10DEC2024_{timestamp}_L1B_STD_V01R00.h5?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&FORMAT=image%2Fpng&TRANSPARENT=true&LAYERS=IMG_VIS&COLORSCALERANGE=46%2C538&BELOWMINCOLOR=extend&ABOVEMAXCOLOR=extend&transparent=true&format=image%2Fpng&STYLES=boxfill%2Fgreyscale&WIDTH=256&HEIGHT=256&CRS=EPSG%3A3857&BBOX={bbox}")
 
     images = []
     for timestamp in timestamps:
@@ -105,5 +110,6 @@ def receive_data():
 @app.route('/hello',methods=['GET'])
 def hello():
     return 'hi'
+
 if __name__ == '__main__':
     app.run(debug=True)
