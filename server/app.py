@@ -40,7 +40,7 @@ def get_image(url):
         return None
 
 def load_image(timestamps,bbox):
-    base_url = ("https://mosdac.gov.in/live_data/wms/live3RL1BSTD1km/products/Insat3r/3R_IMG/2025/10DEC/3RIMG_18SEP2025_{timestamp}_L1B_STD_V01R00.h5?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&FORMAT=image%2Fpng&TRANSPARENT=true&LAYERS=IMG_VIS&COLORSCALERANGE=46%2C538&BELOWMINCOLOR=extend&ABOVEMAXCOLOR=extend&transparent=true&format=image%2Fpng&STYLES=boxfill%2Fgreyscale&WIDTH=256&HEIGHT=256&CRS=EPSG%3A3857&BBOX={bbox}")
+    base_url = ("https://mosdac.gov.in/live_data/wms/live3RL1BSTD1km/products/Insat3r/3R_IMG/2025/18SEP/3RIMG_18SEP2025_{timestamp}_L1B_STD_V01R00.h5?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&FORMAT=image%2Fpng&TRANSPARENT=true&LAYERS=IMG_VIS&COLORSCALERANGE=46%2C538&BELOWMINCOLOR=extend&ABOVEMAXCOLOR=extend&transparent=true&format=image%2Fpng&STYLES=boxfill%2Fgreyscale&WIDTH=256&HEIGHT=256&CRS=EPSG%3A3857&BBOX={bbox}")
 
     images = []
     for timestamp in timestamps:
