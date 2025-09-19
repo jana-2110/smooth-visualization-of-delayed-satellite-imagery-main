@@ -12,8 +12,9 @@ how to run the files
    python .\app.py
 
    \\ cmd frontend
-     cd frontend/server-processing
+   cd frontend/server-processing
      python -m http.server
+     
 
     \\ server number
     127.0.0:8000
