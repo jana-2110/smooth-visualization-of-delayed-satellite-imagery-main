@@ -105,6 +105,5 @@ def receive_data():
 @app.route('/hello',methods=['GET'])
 def hello():
     return 'hi'
-
 if __name__ == '__main__':
     app.run(debug=True)
